@@ -114,7 +114,7 @@ function FormTema() {
 
             </div>
 
-            <button className="rounded text-slate-100 bg-[#b191cd]  hover:bg-[#EDE4F5]  w-1/2 
+            <button className="rounded text-slate-100 bg-[#b191cd]  hover:bg-[#dec3f6]   w-1/2 
             py-2 mx-auto flex justify-center font-bold" type="submit">
                 
                 {isLoading ? 
