@@ -16,7 +16,7 @@ function Cadastro() {
   //Variavel de Estado que recebe a vereficação de senha
   const [confirmaSenha, setConfirmaSenha] = useState<string>("")
 
-  //Varivel de Estado que recebe a verificação 
+  //Varivel de Estado que recebe a verificação de senha
   const [usuario, setUsuario] = useState<Usuario>({
     id: 0,
     nome: '',

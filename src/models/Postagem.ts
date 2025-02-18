@@ -9,3 +9,5 @@ export default interface Postagem {
     tema: Tema | null
     usuario: Usuario | null
 }
+
+// Models - onde nós fazemos as tipagens dos objetos ou variavels de acordo com o que esta no back

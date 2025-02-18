@@ -53,7 +53,11 @@ export function AuthProvider({children}: AuthProviderProps) {
 
     return (
         <AuthContext.Provider value={{ usuario, handleLogin, handleLogout, isLoading}}>
-        {children}
+            {/* se refere a aplicação a ser renderizada (no app.tsx) */}
+        {children}     
         </AuthContext.Provider>
     )
 }
+
+// AuthContext - armazenando variaveis e informações sensiveis, como o token, para poder se compartilhado por varios componentes diferentes
+// handleLogin - chama a service para fazer o tratamento, vai ver se a req foi bem sucedida e armazenar os dados, como o token, no AuthContex para os outros componentes
