@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { AuthContext } from "../../../contexts/AuthContext"
 import Tema from "../../../models/Tema"
 import { atualizar, buscar, cadastrar } from "../../../services/Service"
+import { ToastAlerta } from "../../../utils/ToastAlerta"
 
 
 function FormTema() {
@@ -33,7 +34,7 @@ function FormTema() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado!')
+            ToastAlerta("Você precisa estar logado!", "warning")
             navigate('/')
         }
     }, [token])
@@ -64,12 +65,12 @@ function FormTema() {
                 await atualizar(`/temas`, tema, setTema, {
                     headers: { 'Authorization': token }
                 })
-                alert('O Tema foi atualizado com sucesso!')
+                ToastAlerta("O Tema foi atualizado com sucesso!", "success")
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao atualizar o tema.')
+                    ToastAlerta("Erro ao atualizar o tema.", "error")
                 }
 
             }
@@ -78,12 +79,12 @@ function FormTema() {
                 await cadastrar(`/temas`, tema, setTema, {
                     headers: { 'Authorization': token }
                 })
-                alert('O Tema foi cadastrado com sucesso!')
+                ToastAlerta("O Tema foi cadastrado com sucesso!", "success")
             } catch (error: any) {
                 if (error.toString().includes('403')) {
                     handleLogout()
                 } else {
-                    alert('Erro ao cadastrar o tema.')
+                  ToastAlerta("Erro ao cadastrar o tema.", "error")
                 }
 
             }
@@ -114,7 +115,7 @@ function FormTema() {
 
             </div>
 
-            <button className="rounded text-slate-100 bg-[#f2a790]  hover:bg-[#c5b6b0]   w-1/2 
+            <button className="rounded text-slate-100 bg-[#dec3f6] hover:bg-[#EDE4F5]   w-1/2 
             py-2 mx-auto flex justify-center font-bold" type="submit">
                 
                 {isLoading ? 
